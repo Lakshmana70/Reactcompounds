@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+          var Abc=function(){
+            var [ar,setAR]=React.useState([
+            {
+                firstname:'praveen',
+                lastname:'gubbala',
+                age:38
+            },
+            {
+                firstname:'anupama',
+                lastname:'reddy',
+                age:28
+            },
+            {
+                firstname:'priya',
+                lastname:'kaman',
+                age:23
+            },
+            {
+                firstname:'kiran',
+                lastname:'rao',
+                age:25
+            },
+            {
+                firstname:'triveni',
+                lastname:'manu',
+                age:29
+            }
+        ])
+          function xyz(i){
+            ar.splice(i,1)
+           setAR( [...ar] )
+            
+           
+            
+          }
+
+           return ( <div>{
+            <table border="2px" >
+               
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>age</th>
+                    <th>Option</th>
+               
+                <tbody>
+                    {
+                    ar.map((a,i)=>{
+                        return  <tr>
+                           <td>{a.firstname}</td>
+                           <td>{a.lastname}</td>
+                           <td>{a.age}</td>
+                           <td>{
+                            <button onClick={()=>xyz(i)}>Delete</button>
+                        }</td>
+                        </tr>
+                        
+                    })
+                }
+            </tbody>
+            </table>
+        }
+        </div>
+           )
+          }
+          ReactDOM.render(<Abc/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
